@@ -6,7 +6,7 @@ def gameMode():
     while True:
         try:
             difficulty = int(input(
-                'Chose the game difficulty:\n1.SpongeBob (easy)\n2.Kratos (advanced)\n--> '))
+                '\nChose the game difficulty:\n1.SpongeBob (easy)\n2.Kratos (advanced)\n\n--> '))
             if difficulty in [1, 2]:
                 print("\nNice let's start\n")
             else:
@@ -57,21 +57,44 @@ def loser():
         "Hello, Mr. failure! :P"
     ]
     ran_msg = random.randint(0, len(messages) - 1)
-    print('\n'+messages[ran_msg]+'\n')
+    print('\n'+messages[ran_msg])
 
 
 def numPicker():
+    print('''
+    Welcome to
+
+            ╔═╗╦ ╦╔═╗╔═╗╔═╗  ╦╔╦╗
+            ║ ╦║ ║║╣ ╚═╗╚═╗  ║ ║ 
+            ╚═╝╚═╝╚═╝╚═╝╚═╝  ╩ ╩ 
+
+    This is just a random script I wrote for fun,
+    while practicing for "Automate the boring stuffs with Python".
+    
+    DISCLAIMER:
+        The game might be a little rude if you dont guess the number right.
+        It is not my fault, It got out of my hands and started mistreating
+        and making fun of everyone.
+
+    INSTRUCTIONS:
+    1 - Pick the game mode.
+            - Spongebob is easy as the random number never changes.
+            - Kratos is like hell because the random number will always change. BUAHAHAHA.
+    2 - Select the range of numbers to guess (you can include negatives)
+    3 - You can enter Control-C at any time to get out of the game.
+    ''')
     mode = gameMode()
     n_range = numRange()
     rand_number = random.randint(n_range[0], n_range[1])
     while True:
-        your_number = int(input('--------------\nPick a number '))
+        your_number = int(
+            input('\n=============================\nPick a number '))
         try:
             if mode == 1:
                 if your_number != rand_number:
                     loser()
                 else:
-                    print('\nNice, you got it!!')
+                    print('\nNice, you got it!!\nI hate losing so BYE!!!')
                     break
             elif mode == 2:
                 rand_number = random.randint(n_range[0], n_range[1])
@@ -79,7 +102,7 @@ def numPicker():
                     print('\nThe right number was: {}'.format(rand_number))
                     loser()
                 else:
-                    print('\nNice, you got it!!')
+                    print('\nNice, you got it!!\nI hate losing so BYE!!!')
                     break
         except ValueError as err:
             print(
@@ -90,6 +113,3 @@ try:
     numPicker()
 except KeyboardInterrupt:
     print('\n\nBye!!!!!\n')
-
-# messages to display if lose
-# action if win
