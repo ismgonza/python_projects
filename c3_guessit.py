@@ -57,6 +57,7 @@ def loser():
         "Hello, Mr. failure! :P"
     ]
     ran_msg = random.randint(0, len(messages) - 1)
+    #print('\n'+messages[random.randint(0, len(messages) - 1)])
     print('\n'+messages[ran_msg])
 
 
@@ -102,7 +103,7 @@ def numPicker():
                     print('\nThe right number was: {}'.format(rand_number))
                     loser()
                 else:
-                    print('\nNice, you got it!!\nI hate losing so BYE!!!')
+                    print('\nNice, you got it!!\nI hate losing so BYE!!!\n\n')
                     break
         except ValueError as err:
             print(
